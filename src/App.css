@@ -66,3 +66,114 @@
 .project:hover .project-video{transform:translateX(-50%) scale(1.018)}
 .project-video{transition:transform .6s cubic-bezier(.22,.61,.36,1)}
 @media(max-width:560px){.project-video{inset:14px auto 14px 50%;height:calc(100% - 28px);max-width:52%}}
+
+/* Centred navigation and a calmer, more cohesive About section. */
+.navbar{justify-content:center}
+.navbar nav{margin-inline:auto}
+.nav-cta{padding:11px 18px}
+.discipline-copy li{justify-content:flex-start}
+.skills{padding-top:210px;padding-bottom:210px}
+.about{grid-template-columns:1fr;justify-items:center;gap:34px;padding-top:40px;text-align:center}
+.about>small{grid-column:auto;align-self:auto}
+.portrait{width:min(360px,100%);height:460px}
+.about-content{display:flex;flex-direction:column;align-items:center;width:min(880px,100%)}
+.about h2{margin:8px 0 22px;font-size:clamp(38px,5vw,70px);max-width:880px}
+.about-content>p{max-width:620px;margin:0 auto}
+.cv-actions{justify-content:center;margin-top:34px}
+
+/* Contact becomes part of the headline instead of a separate bar. */
+.contact{text-align:center;padding-top:110px;overflow:hidden}
+.contact-title{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.12em .18em;margin:70px auto 90px;line-height:.9}
+.contact-title>span,.contact-title>em{white-space:nowrap}
+.contact-title .contact-orb{position:relative;display:grid;place-content:center;flex:0 0 auto;width:clamp(116px,11vw,172px);aspect-ratio:1;margin:0;border:0;border-radius:50%;padding:0;background:var(--orange);color:#111;box-shadow:0 18px 45px #ff5a1f38;text-transform:uppercase;font-size:clamp(9px,.75vw,12px);font-style:normal;letter-spacing:.12em;transform:rotate(-7deg);transition:transform .45s cubic-bezier(.22,.61,.36,1),box-shadow .45s}
+.contact-title .contact-orb:before,.contact-title .contact-orb:after{content:"";position:absolute;inset:-9px;border:1px solid #ff5a1f66;border-radius:47% 53% 52% 48%;animation:orb-spin 8s linear infinite;pointer-events:none}
+.contact-title .contact-orb:after{inset:-16px;border-color:#ff5a1f2e;animation-direction:reverse;animation-duration:11s}
+.contact-title .contact-orb>span{display:block}.contact-title .contact-orb i{font-style:normal;font-size:18px;margin-top:8px}
+.contact-title .contact-orb:hover{transform:rotate(0) scale(1.08);box-shadow:0 24px 60px #ff5a1f55}
+.footer-row{border-top:1px solid #cbc7c0}
+@keyframes orb-spin{to{transform:rotate(360deg)}}
+@media(max-width:900px){.navbar{justify-content:flex-end}.navbar .menu{display:block}.skills{padding-top:140px;padding-bottom:150px}.about{grid-template-columns:1fr;padding-top:30px}.about>small{grid-column:auto}.contact-title{gap:28px;margin-block:60px 80px}.contact-title>span,.contact-title>em{width:100%}.contact-title .contact-orb{width:130px}}
+@media(prefers-reduced-motion:reduce){.contact-title .contact-orb:before,.contact-title .contact-orb:after{animation:none}}
+
+/* About: horizontal composition, centred as one complete unit. */
+.about{grid-template-columns:360px minmax(420px,560px);justify-content:center;justify-items:stretch;column-gap:80px;row-gap:42px;text-align:left}
+.about>small{grid-column:1/-1;text-align:center}
+.about .portrait{grid-column:1;width:360px;height:460px}
+.about-content{grid-column:2;align-items:flex-start;justify-content:center;width:100%}
+.about h2{margin:0 0 24px;font-size:clamp(38px,4.2vw,62px);text-align:left}
+.about-content>p{margin:0;max-width:560px;text-align:left}
+.about .cv-actions{justify-content:flex-start}
+
+/* The contact orb sits in the gap between both lines, cutting into the type. */
+.contact-title{position:relative;display:block;max-width:1200px;min-height:2em;margin:70px auto 100px;line-height:.82}
+.contact-title>span,.contact-title>em{position:relative;z-index:1;display:block;width:max-content}
+.contact-title>span{margin-left:2%;transform:translateX(-5%)}
+.contact-title>em{margin:-.02em 2% 0 auto;transform:translateX(3%)}
+.contact-title .contact-orb{position:absolute;z-index:3;left:50%;top:51%;margin:0;transform:translate(-50%,-50%) rotate(-7deg)}
+.contact-title .contact-orb:hover{transform:translate(-50%,-50%) rotate(0) scale(1.08)}
+@media(max-width:900px){.about{grid-template-columns:minmax(260px,340px) minmax(300px,440px);column-gap:40px}.about .portrait{grid-column:1;width:100%;height:430px}.about-content{grid-column:2}.about h2{font-size:clamp(34px,5vw,48px)}.contact-title{min-height:2.6em}.contact-title>span,.contact-title>em{width:100%;margin-inline:0;transform:none}.contact-title .contact-orb{top:50%}}
+@media(max-width:680px){.about{grid-template-columns:1fr;justify-items:center;text-align:center}.about>small,.about .portrait,.about-content{grid-column:1}.about .portrait{width:min(340px,100%)}.about-content{align-items:center}.about h2,.about-content>p{text-align:center}.about .cv-actions{justify-content:center}.contact-title{min-height:3em}.contact-title .contact-orb{width:108px}}
+
+/* Final contact lockup: the orb owns its space and gently pushes the type. */
+.contact-title{display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;align-items:center;justify-content:center;width:max-content;max-width:100%;min-height:0;column-gap:24px;row-gap:0;text-align:left}
+.contact-title>span,.contact-title>em{width:auto;margin:0;transform:none}
+.contact-title>span{grid-column:1;grid-row:1}
+.contact-title>em{grid-column:1;grid-row:2;margin-top:-.05em}
+.contact-title .contact-orb{position:relative;inset:auto;grid-column:2;grid-row:1 / 3;width:92px;margin:0;transform:rotate(-7deg);transition:width .5s cubic-bezier(.22,.61,.36,1),transform .5s cubic-bezier(.22,.61,.36,1),box-shadow .45s}
+.contact-title .contact-orb:hover{width:148px;transform:rotate(0);box-shadow:0 24px 60px #ff5a1f55}
+@media(max-width:900px){.contact-title{display:grid;width:max-content;max-width:100%;gap:0 18px}.contact-title>span,.contact-title>em{width:auto;text-align:left}.contact-title .contact-orb{position:relative;top:auto;left:auto;width:76px}.contact-title .contact-orb:hover{width:108px}}
+@media(max-width:560px){.contact-title{grid-template-columns:minmax(0,1fr) auto;width:100%}.contact-title .contact-orb{width:64px}.contact-title .contact-orb:hover{width:88px}}
+
+/* Give the skill category labels room before the technology pills. */
+.skill-grid small{display:block;margin-bottom:28px}
+.skill-grid p{margin:0}
+
+/* Centred phrase with an interactive orb separating both halves. */
+.contact h2.contact-title{display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;width:100%;max-width:1380px;min-height:0;gap:clamp(14px,1.8vw,30px);margin:75px auto 105px;font-size:clamp(52px,7.2vw,112px);line-height:.9;text-align:center}
+.contact-title>span,.contact-title>em{display:block;flex:0 0 auto;width:auto;margin:0;transform:none;white-space:nowrap}
+.contact-title .contact-orb{position:relative;inset:auto;display:grid;flex:0 0 auto;width:78px;grid-column:auto;grid-row:auto;margin:0;transform:rotate(-7deg);transition:width .55s cubic-bezier(.22,.61,.36,1),transform .55s cubic-bezier(.22,.61,.36,1),box-shadow .45s}
+.contact-title .contact-orb:hover{width:148px;transform:rotate(0);box-shadow:0 24px 60px #ff5a1f55}
+@media(max-width:900px){.contact h2.contact-title{gap:14px;font-size:clamp(38px,7vw,64px)}.contact-title .contact-orb{width:66px}.contact-title .contact-orb:hover{width:108px}}
+@media(max-width:560px){.skill-grid small{margin-bottom:22px}.contact h2.contact-title{gap:9px;font-size:8.5vw;margin-block:60px 80px}.contact-title .contact-orb{width:52px}.contact-title .contact-orb:hover{width:76px}.contact-title .contact-orb>span{font-size:7px}.contact-title .contact-orb i{font-size:12px;margin-top:3px}}
+
+/* Circular contact experiment: type follows the orb instead of sitting beside it. */
+.contact h2.contact-title{display:grid;place-items:center;width:100%;max-width:none;min-height:0;margin:45px auto 85px}
+.contact-title .contact-orb{position:relative;display:block;width:clamp(300px,38vw,520px);aspect-ratio:1;margin:0;border:0;border-radius:50%;padding:0;background:transparent;color:#111;box-shadow:none;transform:none;transition:width .6s cubic-bezier(.22,.61,.36,1)}
+.contact-title .contact-orb:before,.contact-title .contact-orb:after{display:none}
+.contact-orb svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transition:transform .7s cubic-bezier(.22,.61,.36,1)}
+.contact-orb svg path{fill:none}
+.contact-orb svg text{text-anchor:middle;text-transform:uppercase;font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;font-weight:700;letter-spacing:-.045em;fill:#111}
+.contact-orb .arc-top{font-size:49px}
+.contact-orb .arc-bottom{font-family:Georgia,serif;font-size:54px;font-style:italic;font-weight:400;fill:var(--orange);text-transform:none}
+.orb-core{position:absolute;left:50%;top:50%;display:grid;place-content:center;width:112px;aspect-ratio:1;border-radius:50%;background:var(--orange);color:#111;box-shadow:0 18px 45px #ff5a1f38;transform:translate(-50%,-50%) rotate(-7deg);transition:width .55s cubic-bezier(.22,.61,.36,1),transform .55s cubic-bezier(.22,.61,.36,1),box-shadow .45s;text-transform:uppercase;font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;font-size:10px;font-style:normal;letter-spacing:.12em}
+.orb-core>span{display:block}.orb-core i{font-style:normal;font-size:17px;margin-top:7px}
+.contact-orb:hover .orb-core{width:158px;transform:translate(-50%,-50%) rotate(0);box-shadow:0 25px 65px #ff5a1f55}
+.contact-title .contact-orb:after{content:"";position:absolute;display:block;inset:-30px;border:0;border-radius:50%;background:transparent;pointer-events:auto}
+.contact-orb:hover svg{transform:none}
+
+/* Keep the lettering visually attached to the central orb at every size. */
+.orb-core{width:40%}
+.contact-orb:hover .orb-core{width:48%}
+
+/* The outer composition stays fixed; only the orange core expands. */
+.contact-title .contact-orb,.contact-title .contact-orb:hover{--contact-orb-size:clamp(300px,38vw,520px);width:var(--contact-orb-size);transform:none;box-shadow:none}
+@media(max-width:560px){.contact-title .contact-orb,.contact-title .contact-orb:hover{--contact-orb-size:min(92vw,350px)}}
+
+/* Closed by default, then reveals the complete circular message on hover. */
+.contact h2.contact-title{height:clamp(330px,42vw,560px);margin-block:35px 75px}
+.contact-title .contact-orb{--contact-orb-size:116px;width:var(--contact-orb-size);transition:width .65s cubic-bezier(.22,.61,.36,1)}
+.contact-title .contact-orb:hover{--contact-orb-size:clamp(300px,38vw,520px);width:var(--contact-orb-size)}
+.contact-orb svg{opacity:0;transform:scale(.72) rotate(-8deg);transition:opacity .35s ease,transform .7s cubic-bezier(.22,.61,.36,1)}
+.contact-orb:hover svg{opacity:1;transform:scale(1) rotate(0)}
+.orb-core{width:108px}
+.contact-orb:hover .orb-core{width:190px}
+@media(max-width:560px){.contact h2.contact-title{height:360px;margin-block:25px 55px}.contact-title .contact-orb{--contact-orb-size:88px}.contact-title .contact-orb:hover{--contact-orb-size:min(92vw,350px)}.orb-core{width:82px}.contact-orb:hover .orb-core{width:132px}}
+@media(max-width:560px){.contact h2.contact-title{margin-block:35px 65px}.contact-title .contact-orb{width:min(92vw,350px)}.contact-orb .arc-top{font-size:44px}.contact-orb .arc-bottom{font-size:49px}.orb-core{width:86px;font-size:8px}.contact-orb:hover .orb-core{width:118px}}
+
+/* Compact at rest; the section only opens when the circular CTA does. */
+.contact{padding-top:65px}
+.contact h2.contact-title{height:170px;margin-block:18px 32px;transition:height .65s cubic-bezier(.22,.61,.36,1)}
+.contact h2.contact-title:has(.contact-orb:hover),.contact h2.contact-title:has(.contact-orb:focus-visible){height:clamp(330px,42vw,540px)}
+.contact-title .contact-orb{--contact-orb-size:116px;width:var(--contact-orb-size)}
+.contact-title .contact-orb:hover,.contact-title .contact-orb:focus-visible{--contact-orb-size:clamp(300px,38vw,520px);width:var(--contact-orb-size)}
+@media(max-width:560px){.contact{padding-top:48px}.contact h2.contact-title{height:135px;margin-block:12px 25px}.contact h2.contact-title:has(.contact-orb:hover),.contact h2.contact-title:has(.contact-orb:focus-visible){height:360px}.contact-title .contact-orb{--contact-orb-size:88px;width:var(--contact-orb-size)}.contact-title .contact-orb:hover,.contact-title .contact-orb:focus-visible{--contact-orb-size:min(92vw,350px);width:var(--contact-orb-size)}}

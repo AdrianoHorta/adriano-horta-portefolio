@@ -47,10 +47,6 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   return (
     <header className="navbar">
-      <a className="brand" href="#top">
-        <b>AH</b>
-        <span>Adriano Horta</span>
-      </a>
       <button className="menu" onClick={() => setOpen(!open)}>
         {open ? "Close" : "Menu"}
       </button>
@@ -65,7 +61,7 @@ function Navbar() {
           </a>
         ))}
         <a className="nav-cta" href="#contact">
-          Let's talk <Arrow />
+          Let's talk
         </a>
       </nav>
     </header>
@@ -223,9 +219,6 @@ function Featured() {
               ) : (
                 <div />
               )}
-              <button aria-label={"View " + title}>
-                <Arrow />
-              </button>
             </div>
             <footer>
               <span>
@@ -319,10 +312,7 @@ function Discipline({ type }: { type: "editing" | "development" }) {
             </p>
             <ul>
               {items.map((x) => (
-                <li key={x}>
-                  {x}
-                  <Arrow />
-                </li>
+                <li key={x}>{x}</li>
               ))}
             </ul>
             <div className="discipline-actions">
@@ -378,12 +368,12 @@ function Skills() {
 function About() {
   return (
     <section id="about" className="shell about reveal">
-      <small>05 / About</small>
+      <small>05 / About Me</small>
       <div className="portrait">
         <img src={profilePhoto} alt="Adriano Horta sorrindo" />
         <span>Based in Portugal</span>
       </div>
-      <div>
+      <div className="about-content">
         <h2>
           I work at the intersection of <em>storytelling, design</em> and{" "}
           <em>technology.</em>
@@ -393,9 +383,6 @@ function About() {
           Portugal. Available for freelance editing projects and software
           opportunities.
         </p>
-        <a href="#contact">
-          More about me <Arrow />
-        </a>
         <div className="cv-actions" aria-label="Download curriculum vitae">
           <a href="/cv/adriano-horta-cv-pt.pdf" download>
             CV Português <span aria-hidden="true">↓</span>
@@ -414,20 +401,58 @@ function Contact() {
     <footer id="contact" className="contact">
       <div className="shell">
         <small>Have a project in mind?</small>
-        <h2>
-          Let's work
-          <br />
-          <em>together.</em>
+        <h2 className="contact-title">
+          <a
+            className="contact-orb"
+            href="mailto:adriano_horta@hotmail.com"
+            aria-label="Let's work together — get in touch"
+          >
+            <svg viewBox="0 0 320 320" aria-hidden="true">
+              <defs>
+                <path id="contact-arc-top" d="M 65 158 A 95 95 0 0 1 255 158" />
+                <path id="contact-arc-bottom" d="M 65 174 A 95 95 0 0 0 255 174" />
+              </defs>
+              <text className="arc-top">
+                <textPath href="#contact-arc-top" startOffset="50%">
+                  Let's work
+                </textPath>
+              </text>
+              <text className="arc-bottom">
+                <textPath href="#contact-arc-bottom" startOffset="50%">
+                  together.
+                </textPath>
+              </text>
+            </svg>
+            <span className="orb-core">
+              <span>Get in touch</span>
+              <i aria-hidden="true">↗</i>
+            </span>
+          </a>
         </h2>
-        <a href="mailto:hello@adrianohorta.com">
-          Get in touch <Arrow />
-        </a>
         <div className="footer-row">
-          <span>Adriano Horta © 2026</span>
+          <span>Adriano Horta © 2025</span>
           <p>
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-            <a href="#">Instagram</a>
+            <a
+              href="https://www.linkedin.com/in/adriano-horta-732405271/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://www.behance.net/adrianohortaa"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Behance
+            </a>
+            <a
+              href="https://www.instagram.com/xhortz/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
           </p>
           <a href="#top">Back to top ↑</a>
         </div>
