@@ -362,11 +362,11 @@ function ProjectGallery({
                 ))}
               </div>
             )}
-            {project.githubUrl && (
+            {/*{project.githubUrl && (
               <a className="project-link" href={project.githubUrl} target="_blank" rel="noreferrer">
                 View on GitHub <Arrow />
               </a>
-            )}
+            )}*/}
           </article>
         ))}
       </div>
@@ -454,8 +454,8 @@ function Discipline({ type }: { type: "editing" | "development" }) {
           <div className="discipline-copy">
             <p>
               {edit
-                ? "From the first cut to the final grade, I create edits with intention — balancing pace, sound and visual detail."
-                : "I turn real problems into clear, maintainable digital products — from thoughtful interfaces to the systems behind them."}
+                ? "From the first cut to the final grade, I create edits with intention, balancing pace, sound and visual detail."
+                : "I turn real problems into clear, maintainable digital products, from thoughtful interfaces to the systems behind them."}
             </p>
             <ul>
               {items.map((x) => (
