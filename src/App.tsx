@@ -527,7 +527,7 @@ function About() {
         </h2>
         <p className="about-lead">
           I'm Adriano Horta, a Video Editor and Software Developer based in
-          Portugal. I enjoy taking raw material — whether footage or an idea —
+          Portugal. I enjoy taking raw material, whether footage or an idea,
           and shaping it into something clear, purposeful and engaging.
         </p>
         <p className="about-detail">
@@ -567,7 +567,7 @@ function About() {
           <h3>Join a software team</h3>
           <p>
             On the development side, I'm looking to join a company as part of a
-            software team, where I can contribute, learn and grow — rather than
+            software team, where I can contribute, learn and grow, rather than
             take on freelance development projects.
           </p>
           <a href="mailto:adriano_horta@hotmail.com?subject=Software%20development%20opportunity">
